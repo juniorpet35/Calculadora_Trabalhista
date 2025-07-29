@@ -26,7 +26,6 @@ h1 {
     margin-top: 0;
 }
 
-/* FORMULÁRIO */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -78,7 +77,6 @@ button {
 }
 .btn-remove:hover { background-color: #c0392b; }
 
-/* EVENTOS */
 .event-row {
     display: grid;
     grid-template-areas:
@@ -102,7 +100,6 @@ button {
 .event-row .event-valor-group { grid-area: valor; }
 .event-row .btn-remove { grid-area: remove; align-self: center; }
 
-/* RESULTADOS */
 #results-area {
     margin-top: 20px;
 }
@@ -127,6 +124,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Permite que o status quebre a linha em telas pequenas */
 }
 .period-card p { margin: 5px 0; }
 .status { font-weight: bold; padding: 3px 8px; border-radius: 12px; color: white; font-size: 0.85em; }
@@ -154,8 +152,6 @@ button {
     padding-bottom: 0;
 }
 
-
-/* ESTILOS PARA ABAS E 13º */
 .tabs-container {
     margin-top: 40px;
     border-bottom: 2px solid #ddd;
@@ -235,21 +231,21 @@ button {
     text-decoration: line-through;
 }
 
-/* CORREÇÃO DE RESPONSIVIDADE PARA TELAS PEQUENAS */
 @media (max-width: 768px) {
     .event-row {
-        grid-template-areas:
-            "tipo tipo"
-            "inicio fim"
-            "faltas-mes faltas-num"
-            "valor valor"
-            "vinculo vinculo"
-            "remove remove";
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .event-row .form-group {
+        margin: 0;
     }
 
     .event-row .btn-remove {
         margin-top: 10px;
-        width: 100%;
+        width: auto;
+        align-self: flex-end;
     }
 }
