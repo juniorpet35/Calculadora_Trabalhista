@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Trabalhista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora Trabalhista</h1>
+
+        <div id="inputs">
+            <h2>Dados do Funcionário e Bases de Cálculo</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="baseCalculoFerias">Base de Cálculo Férias (R$)</label>
+                    <input type="number" id="baseCalculoFerias" placeholder="2451.00" value="2451.00" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="baseCalculo13">Base de Cálculo 13º (R$)</label>
+                    <input type="number" id="baseCalculo13" placeholder="2451.00" value="2451.00" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="dataAdmissao">Data de Admissão</label>
+                    <input type="date" id="dataAdmissao" value="2023-04-03">
+                </div>
+                <div class="form-group">
+                    <label for="anoCalculo">Ano do Cálculo</label>
+                    <input type="number" id="anoCalculo" placeholder="AAAA" value="2025" min="1900">
+                </div>
+            </div>
+        </div>
+
+        <div id="events">
+            <h2>Lançar Eventos (Válidos para Férias e 13º)</h2>
+            <div id="events-container"></div>
+            <button id="add-event-btn" class="btn-add">+ Adicionar Evento</button>
+        </div>
+
+        <button id="calculate-btn" class="btn-calculate">Calcular Direitos</button>
+
+        <div class="tabs-container" style="display: none;">
+            <button class="tab-link active" data-tab="ferias-content">Férias</button>
+            <button class="tab-link" data-tab="decimo-terceiro-content">13º Salário</button>
+        </div>
+        <div id="results-area" style="display: none;">
+            <div id="ferias-content" class="tab-content active">
+                <div id="periodo-aberto-result" class="result-section"><h3>Período Aquisitivo em Aberto</h3></div>
+                <div id="direitos-adquiridos-result" class="result-section"><h3>Direitos Adquiridos (Pendentes e Vencidos)</h3></div>
+                <div id="historico-result" class="result-section"><h3>Histórico</h3></div>
+            </div>
+            <div id="decimo-terceiro-content" class="tab-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
