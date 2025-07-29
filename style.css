@@ -249,3 +249,28 @@ button {
         align-self: flex-end;
     }
 }
+
+@media (max-width: 600px) {
+    .event-row {
+        grid-template-columns: 1fr;
+        
+        grid-template-areas:
+            "tipo"
+            "inicio"
+            "fim"
+            "faltas-mes"
+            "faltas-num"
+            "valor"
+            "vinculo"
+            "remove";
+    }
+
+    .event-row .form-group {
+        margin-top: 0;
+    }
+
+    .event-row .btn-remove {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
