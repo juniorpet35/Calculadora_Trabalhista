@@ -26,6 +26,7 @@ h1 {
     margin-top: 0;
 }
 
+/* FORMULÁRIO */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -77,11 +78,12 @@ button {
 }
 .btn-remove:hover { background-color: #c0392b; }
 
+/* EVENTOS */
 .event-row {
     display: grid;
     grid-template-areas:
         "tipo tipo inicio fim remove"
-        "faltas-mes faltas-num . . remove"
+        "faltas-mes faltas-num valor valor remove"
         "vinculo vinculo vinculo vinculo remove";
     grid-template-columns: 1.5fr 1fr 1fr 1fr auto;
     gap: 10px;
@@ -97,8 +99,10 @@ button {
 .event-row .event-month-group { grid-area: faltas-mes; }
 .event-row .event-faltas-group { grid-area: faltas-num; }
 .event-row .periodo-vinculado-group { grid-area: vinculo; margin-top: 10px; }
+.event-row .event-valor-group { grid-area: valor; }
 .event-row .btn-remove { grid-area: remove; align-self: center; }
 
+/* RESULTADOS */
 #results-area {
     margin-top: 20px;
 }
@@ -150,6 +154,8 @@ button {
     padding-bottom: 0;
 }
 
+
+/* ESTILOS PARA ABAS E 13º */
 .tabs-container {
     margin-top: 40px;
     border-bottom: 2px solid #ddd;
@@ -227,4 +233,23 @@ button {
     background-color: #fdecea;
     color: #c0392b;
     text-decoration: line-through;
+}
+
+/* CORREÇÃO DE RESPONSIVIDADE PARA TELAS PEQUENAS */
+@media (max-width: 768px) {
+    .event-row {
+        grid-template-areas:
+            "tipo tipo"
+            "inicio fim"
+            "faltas-mes faltas-num"
+            "valor valor"
+            "vinculo vinculo"
+            "remove remove";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .event-row .btn-remove {
+        margin-top: 10px;
+        width: 100%;
+    }
 }
